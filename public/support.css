@@ -1,0 +1,332 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: var(--card-bg, #2b2b2b);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--main-text-color, #fff);
+    margin-bottom: 24px;
+}
+
+.request-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.request-list li {
+    padding: 16px;
+    margin-bottom: 12px;
+    background-color: var(--secondary-bg, #333);
+    border-radius: 8px;
+    color: var(--secondary-text-color, #a0a0a0);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.request-list li:hover {
+    transform: translateX(5px);
+    background-color: var(--hover-bg, #404040);
+}
+
+.request-list li:last-child {
+    margin-bottom: 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--secondary-text-color, #a0a0a0);
+    font-size: 14px;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color, #404040);
+    background-color: var(--input-bg, #333);
+    border-radius: 8px;
+    color: var(--main-text-color, #fff);
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color, #4ade80);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.file-upload {
+    background-color: var(--input-bg, #333);
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border-color, #404040);
+}
+
+.file-upload label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--secondary-text-color, #a0a0a0);
+    font-size: 14px;
+}
+
+.file-upload input[type="file"] {
+    display: block;
+    width: 100%;
+    color: var(--secondary-text-color, #a0a0a0);
+    font-size: 14px;
+}
+
+.file-upload input[type="file"]::-webkit-file-upload-button {
+    background-color: var(--secondary-bg, #404040);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    color: var(--main-text-color, #fff);
+    cursor: pointer;
+    margin-right: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.file-upload input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: var(--hover-bg, #4d4d4d);
+}
+
+.submit-btn {
+    background-color: var(--accent-color, #4ade80);
+    color: var(--button-text, #fff);
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--accent-hover, #22c55e);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        padding: 16px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}
+
+/* Dark theme variables - Add these to your root variables if not already present */
+:root {
+    --card-bg: #2b2b2b;
+    --secondary-bg: #333;
+    --hover-bg: #404040;
+    --border-color: #404040;
+    --input-bg: #333;
+    --main-text-color: #fff;
+    --secondary-text-color: #a0a0a0;
+    --accent-color: #4ade80;
+    --accent-hover: #22c55e;
+    --button-text: #fff;
+}
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.ticket-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    color: var(--main-text-color, #fff);
+}
+
+.ticket-table thead {
+    background-color: var(--secondary-bg, #333);
+}
+
+.ticket-table th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 500;
+    color: var(--secondary-text-color, #a0a0a0);
+    border-bottom: 1px solid var(--border-color, #404040);
+}
+
+.ticket-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color, #404040);
+}
+
+.ticket-table tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+.ticket-table tbody tr:hover {
+    background-color: var(--hover-bg, #333);
+}
+
+.attachment-link {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.attachment-link:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+.delete-link {
+    color: #e74c3c;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.delete-link:hover {
+    color: #c0392b;
+    text-decoration: underline;
+}
+
+
+.alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+
+.alert-error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #f87171;
+}
+
+.alert-success {
+    background-color: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+}
+
+.thumbnail {
+    border-radius: 4px;
+    object-fit: cover;
+    transition: transform 0.2s;
+}
+
+.thumbnail:hover {
+    transform: scale(1.1);
+}
+
+.no-attachment {
+    color: #666;
+    font-style: italic;
+}
+
+.no-data {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+}
+
+.file-hint {
+    display: block;
+    margin-top: 0.5rem;
+    color: #666;
+    font-size: 0.875rem;
+}
+
+.ticket-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+
+.ticket-table th,
+.ticket-table td {
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+}
+
+.ticket-table th {
+    background-color: #f9fafb;
+    text-align: left;
+}
+
+.attachment-link {
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+.attachment-link:hover {
+    text-decoration: underline;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.file-upload {
+    margin-bottom: 1rem;
+}
+
+.submit-btn {
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #2563eb;
+}

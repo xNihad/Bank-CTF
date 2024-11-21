@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Balance Transfer Files</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f4f4f4; cursor: pointer; color: blue;}
+        a { text-decoration: none; color: blue; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Balance Transfer Files</h1>
+    <table id="fileTable">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">Name</th>
+                <th onclick="sortTable(1)">Last Modified</th>
+                <th onclick="sortTable(2)">Size</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% files.forEach(file => { %>
+                <tr>
+                    <td><a href="/balance-transfer/download/<%= file.name %>"><%= file.name %></a></td>
+                    <td><%= file.lastModified.toISOString().slice(0, 19).replace('T', ' ') %></td>
+                    <td><%= file.size %> bytes</td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+    <script>
+        function sortTable(columnIndex) {
+            const table = document.getElementById('fileTable');
+            const rows = Array.from(table.rows).slice(1);
+            const isAscending = table.getAttribute('data-sort') !== columnIndex.toString();
+            table.setAttribute('data-sort', isAscending ? columnIndex : '');
+
+            rows.sort((rowA, rowB) => {
+                const cellA = rowA.cells[columnIndex].textContent;
+                const cellB = rowB.cells[columnIndex].textContent;
+
+                if (columnIndex === 1) {
+                    return isAscending
+                        ? new Date(cellA) - new Date(cellB)
+                        : new Date(cellB) - new Date(cellA);
+                } else if (columnIndex === 2) { 
+                    return isAscending
+                        ? parseInt(cellA) - parseInt(cellB)
+                        : parseInt(cellB) - parseInt(cellA);
+                }
+                return isAscending
+                    ? cellA.localeCompare(cellB)
+                    : cellB.localeCompare(cellA);
+            });
+
+            rows.forEach(row => table.tBodies[0].appendChild(row));
+        }
+    </script>
+</body>
+</html>
