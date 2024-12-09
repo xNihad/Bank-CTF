@@ -13,11 +13,11 @@ router.post('/', async (req, res) => {
     try {
         const user = await User.findByUsername(username);
         if (!user) {
-            return res.render('login', { error: 'Invalid username or password.' });
+            return res.status(401).render('login', { error: 'Invalid username or password.' });
         }
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) {
-            return res.render('login', { error: 'Invalid username or password.' });
+            return res.status(401).render('login', { error: 'Invalid username or password.' });
         }
 
         req.session.userId = user.id;
