@@ -13,14 +13,14 @@ services:
     environment:
       - DB_HOST=db
       - DB_USER=root
-      - DB_PASSWORD=secrectdb
+      - DB_PASSWORD=secretdb
       - DB_NAME=ctfdb
 
   db:
     image: mysql:8.0
     container_name: mysql-db
     environment:
-      MYSQL_ROOT_PASSWORD: secrectdb
+      MYSQL_ROOT_PASSWORD: secretdb
       MYSQL_DATABASE: ctfdb
     ports:
       - "3306:3306"
