@@ -59,7 +59,7 @@ router.post('/submit', upload.single('upload'), async (req, res) => {
     try {
         const { cafer, message } = req.body;
 
-        if (!username || !message) {
+        if (!cafer || !message) {
             return res.redirect('/support?error=' + encodeURIComponent('Username and message are required'));
         }
 
