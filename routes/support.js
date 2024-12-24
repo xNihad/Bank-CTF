@@ -57,15 +57,15 @@ router.post('/submit', upload.single('upload'), async (req, res) => {
     }
 
     try {
-        const { cafer, message } = req.body;
+        const { username, message } = req.body;
 
-        if (!cafer || !message) {
+        if (!username || !message) {
             return res.redirect('/support?error=' + encodeURIComponent('Username and message are required'));
         }
 
         const filePath = req.file ? req.file.path : null;
 
-        await Support.create(req.session.userId, cafer, message, filePath);
+        await Support.create(req.session.userId, username, message, filePath);
 
         res.redirect('/support?success=' + encodeURIComponent('Support request submitted successfully'));
     } catch (error) {

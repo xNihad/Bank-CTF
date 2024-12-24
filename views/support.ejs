@@ -98,7 +98,7 @@
                                     <% supports.forEach((support, index) => { %>
                                         <tr>
                                             <td><%= index + 1 %></td>
-                                            <td><%= support.cafer %></td>
+                                            <td><%= support.username %></td>
                                             <td><%= support.message %></td>
                                             <td>
                                                 <% if (support.file_path) { %>
@@ -135,8 +135,8 @@
                         <div class="form-group">
                             <label for="username">Username</label>
                             <input type="text" 
-                                   id="cafer" 
-                                   name="cafer" 
+                                   id="username" 
+                                   name="username" 
                                    required>
                         </div>
                 
